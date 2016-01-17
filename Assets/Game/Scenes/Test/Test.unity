@@ -168,8 +168,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 319207948}
   - 54: {fileID: 319207949}
-  - 75: {fileID: 319207950}
   - 114: {fileID: 319207951}
+  - 114: {fileID: 319207950}
+  - 114: {fileID: 319207952}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -207,17 +208,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!75 &319207950
-ConstantForce:
+--- !u!114 &319207950
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 319207947}
   m_Enabled: 1
-  m_Force: {x: 0, y: 0, z: 0}
-  m_RelativeForce: {x: 0, y: 0, z: 100}
-  m_Torque: {x: 0, y: 0, z: 0}
-  m_RelativeTorque: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d691931478553944ba48094b88bd3a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 200
+  maxPitchAngle: 45
+  minPitchAngle: -45
+  maxTurnOverY: 60
+  thrust: 0
+  turnAmount: 0
 --- !u!114 &319207951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,8 +236,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1506bfb6ead434a9f9680e114bf6662e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gyroCtrlRange: {x: 1, y: -1, z: -0.25}
-  gyroLPFilter: {x: 0.9, y: 0.9, z: 0.9}
+  useClassicControls: 0
+--- !u!114 &319207952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 319207947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32ee61e2d6983e34da18fa995bd739fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  calibrationSamples: 10
+  gyroCtrlRange: {x: 180, y: -25, z: -15}
+  gyroLPFilter: {x: 0.8, y: 0.2, z: 0.4}
 --- !u!1 &357464588
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +329,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 90d8e09703679534295bd2cacb73d6de, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 90d8e09703679534295bd2cacb73d6de, type: 2}
       propertyPath: m_LocalPosition.z
