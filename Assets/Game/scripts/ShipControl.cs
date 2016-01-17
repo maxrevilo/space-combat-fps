@@ -23,7 +23,14 @@ public class ShipControl : MonoBehaviour {
     {
         float lateral, vertical;
 
-        shipMotor.setThrust(0.5f);
+        if(Input.GetButton("Fire"))
+        {
+            shipMotor.setThrust(1f);
+        } else
+        {
+            shipMotor.setThrust(0.5f);
+        }
+
 
         if(useClassicControls || tiltJoystick == null || !tiltJoystick.enabled)
         {
